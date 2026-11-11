@@ -4,31 +4,115 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Irene Muchoki | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body{font-family:Arial, Helvetica, sans-serif;margin:0;background:#f5f7fb;color:#222}
-header{background:#0f172a;color:white;padding:40px 20px;text-align:center}
-section{max-width:900px;margin:auto;padding:40px 20px}
-h2{color:#0f172a}
-.card{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.08);margin-bottom:20px}
-.skills span{display:inline-block;background:#e2e8f0;margin:6px;padding:8px 12px;border-radius:8px;font-size:14px}
-footer{text-align:center;padding:20px;background:#0f172a;color:white}
+:root{
+  --primary:#6c7bff;
+  --primary-dark:#5565f0;
+  --ink:#1f2233;
+  --muted:#6b7084;
+  --bg:#ffffff;
+  --soft:#f3f5ff;
+  --line:#e6e9f5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.7}
+
+/* ---------- Navigation ---------- */
+nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;padding:16px 8%}
+.logo{font-weight:600;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo i{width:20px;height:20px;background:var(--primary);border-radius:6px 14px 6px 14px;display:inline-block}
+nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+nav a{text-decoration:none;color:var(--ink);font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+nav a:hover,nav a.active{color:var(--primary)}
+
+/* ---------- Hero ---------- */
+header{background:var(--soft);padding:90px 8%;display:flex;align-items:center;justify-content:space-between;gap:40px;min-height:560px}
+.hero-text{max-width:520px}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--ink);margin:0 0 14px}
+header h1{font-size:56px;line-height:1.1;margin:0 0 18px;font-weight:600;text-transform:uppercase}
+header p.lead{color:var(--muted);font-size:15px;margin:0 0 32px}
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;font-size:12px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;padding:14px 30px;border-radius:4px;transition:.25s}
+.btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 20px rgba(108,123,255,.35)}
+
+/* framed photo with dots */
+.photo-wrap{position:relative;width:340px;height:380px;flex-shrink:0}
+.photo-wrap::before{content:"";position:absolute;inset:0;border:14px solid var(--primary);background:#e4e8ff}
+.photo-wrap::after{content:"";position:absolute;left:30px;top:30px;width:120px;height:120px;
+  background-image:radial-gradient(var(--primary) 3px,transparent 3.5px);background-size:30px 30px;opacity:.8}
+.photo{position:absolute;right:-30px;bottom:0;width:300px;height:360px;background:linear-gradient(160deg,#1f2233,#3a4170);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:72px;font-weight:700;z-index:2;border-radius:6px 6px 0 0}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:6px 6px 0 0}
+
+/* ---------- Sections ---------- */
+section{max-width:1000px;margin:auto;padding:70px 24px 10px}
+h2{font-size:28px;margin:0 0 28px;font-weight:600;position:relative;padding-bottom:14px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:48px;height:4px;background:var(--primary);border-radius:2px}
+h3{margin:0 0 8px;font-weight:600;font-size:18px}
+.card{background:#fff;padding:26px;border-radius:12px;border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(31,34,51,.06);margin-bottom:22px;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(108,123,255,.18)}
+.card p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.card p strong{color:var(--ink)}
+.card img{max-width:100%;border-radius:8px;margin-top:10px}
+
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skills span{background:var(--soft);color:var(--primary-dark);padding:8px 16px;border-radius:30px;font-size:13px;font-weight:500}
+
+/* ---------- Footer ---------- */
+footer{text-align:center;padding:26px;background:var(--ink);color:#cfd3e8;font-size:14px;margin-top:70px}
+footer p{margin:0}
+
+/* ---------- Responsive ---------- */
+@media(max-width:860px){
+  nav{flex-direction:column;gap:12px}
+  nav ul{flex-wrap:wrap;justify-content:center;gap:16px}
+  header{flex-direction:column;text-align:center;padding:60px 8% 70px}
+  header h1{font-size:40px}
+  .photo-wrap{width:280px;height:320px}
+  .photo{width:250px;height:300px;right:-20px}
+}
 </style>
 </head>
 <body>
 
-<header>
-<h1>Irene Muchoki</h1>
-<p>Electronics & Computer Engineering Student | Aspiring Graduate Engineer</p>
+<nav>
+  <div class="logo"><i></i>Irene M.</div>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <div class="hero-text">
+    <p class="eyebrow">This is me</p>
+    <h1>Irene Muchoki</h1>
+    <p class="lead">Electronics &amp; Computer Engineering Student | Aspiring Graduate Engineer</p>
+    <a class="btn" href="#projects">Discover Now</a>
+  </div>
+  <div class="photo-wrap">
+    <!-- To use your own photo, replace the "IM" text with: <img src="your-photo.jpg" alt="Irene Muchoki"> -->
+    <div class="photo">IM</div>
+  </div>
 </header>
 
-<section>
+<section id="about">
 <h2>About Me</h2>
 <div class="card">
-<p>I am a Kenyan student currently pursuing a Bachelor's degree in Electronics and Computer Engineering. I am passionate about technology, engineering, and renewable energy. My goal is to design and develop new technology and eventually start a company that supports automated clean and reliable energy solutions.</p>
+<p>I am a student currently pursuing a Bachelor's degree in Electronics and Computer Engineering. I am passionate about electronics, automation, embedded systems and integrating technology into my daily life. I am willing to learn unfamiliar technologies and consistently seek ways to improve.</p>
 </div>
 </section>
 
-<section>
+<section id="education">
 <h2>Education</h2>
 <div class="card">
 <p><strong>BSc. in Electronics and Computer Engineering</strong></p>
@@ -36,56 +120,67 @@ footer{text-align:center;padding:20px;background:#0f172a;color:white}
 </div>
 </section>
 
-<section>
+<section id="skills">
 <h2>Technical Skills</h2>
 <div class="card skills">
-<span>Python</span>
-<span>HTML</span>
-<span>CSS</span>
-<span>AutoCAD Electrical</span>
-<span>Jupyter Notebook</span>
-<span>Anaconda</span>
+<span>Programming: Python, C++, HTML, CSS.</span>
+<span>Hardware development: Arduino UNO, electronics prototyping.</span>
+<span>Development Tools: AutoCAD Electrical, Anaconda, Arduino IDE, FreeCAD, AutoCAD, PSIM, VS code</span>
 <span>Circuit Analysis</span>
 <span>Data Structuring</span>
 </div>
 </section>
 
-<section>
+<section id="projects">
 <h2>Projects</h2>
+
 <div class="card">
+<p>All the projects below are on my <a href = "https://github.com/IRENE-MUCHOKI">Github</a></p>
 <h3>Data Structuring with Python</h3>
-<p>Worked with unstructured datasets and converted them into structured data using Jupyter Notebook and Python dataframes then using the data to build models.</p>
+<p>Worked with unstructured datasets from Kaggle and converted them into structured data using VS code to build models. Some of my projects include a personal finance tracker, a demand forecast app and a disease prediction app.</p>
 </div>
-
-
 
 <div class="card">
 <h3>AutoCAD Electrical Practice</h3>
 <p>Created and interpreted electrical schematic diagrams using AutoCAD electrical symbols and layers.</p>
+<img src="autocad.jpeg" alt="An example of a demo for an automotive electrical system.">
+</div>
+
+<div class="card">
+<h3>Flood rate monitoring system</h3>
+<p>The system uses an ultrasonic sensor to measure the distance between the surface of the water and the sensor. The ultrasonic sensor is connected to an Arduino microcontroller which processes distance readings and determines the current water level. It has a buzzer for warning. It also has a user interface to alert the user when the water levels are not safe.</p>
+</div>
+
+<div class="card">
+<h3>Computer Vision</h3>
+<p>Gesture-scrolling system: a gesture scrolling system that allows a user to control a computer using gestures. Technologies used: Python, Open CV, MediaPipe, PyAutoGUI.</p>
+<p>Number plate recognition system: this system uses YOLOv8n to locate vehicle number plates and EasyOCR to extract the text from detected region and also the type of vehicle it is.</p>
+<p>No-smoking zone monitoring system: uses the same technologies as the ones above to identify smoking activities in designated no-smoking zones.</p>
 </div>
 </section>
 
-<section>
+<section id="achievements">
 <h2>Achievements</h2>
 <div class="card">
-<p>Participated in national chess competitions organized by the Kenya Chess Federation, strengthening strategic thinking and analytical skills.</p>
+<p>Participated in national chess competitions organized by the Kenya Chess Federation, strengthening my strategic thinking and analytical skills.</p>
 </div>
 </section>
 
-<section>
+<section id="goals">
 <h2>Career Goals</h2>
 <div class="card">
 <p><strong>Short Term:</strong> Gain internships and improve engineering and programming skills.</p>
-<p><strong>Long Term:</strong> Expand automation in Kenya and establish a solar energy installation company.</p>
+<p><strong>Long Term:</strong> Expand automation in Kenya and establish a renewable energy company.</p>
 </div>
 </section>
 
-<section>
+<section id="contact">
 <h2>Contact</h2>
 <div class="card">
 <p>Name: Irene Muchoki</p>
 <p>Location: Kenya</p>
-<p>Email: irenewamuchoki@gmail.com</p>
+<a href="mailto:irenewanuchoki@gmail.com">Email</a><br>
+<a href="https://www.linkedin.com/in/irene-wambui-muchoki-3855a035b?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
 </div>
 </section>
 
